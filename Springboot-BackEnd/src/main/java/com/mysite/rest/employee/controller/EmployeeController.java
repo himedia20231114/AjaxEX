@@ -25,11 +25,21 @@ import com.mysite.rest.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @CrossOrigin("*")		//CORS 셋팅 
-@RestController
-@RequestMapping ("/api/employee")
+@RestController			// REST API 통신 
+@RequestMapping ("/api/employee")		//@RequestMapping 하위 요청에 상속 됨. 
 @RequiredArgsConstructor
 public class EmployeeController {
 
+	// @Controller :  <== MPA ( Server Side Randerring) 
+		//  @GetMapping, @PostMapping 요청만 받는다. 백엔드 로직처리, 뷰페이지 를 리턴 
+	
+	// @RestController : SPA ( Client Side Randerring ) 
+		// JSON 의로 값을 클라이언트에 던져줌. Client 에서 JSON 으로 값을 받아서 DB에 저장함. 
+		//  - @GetMapping(DB에서 Select) , 
+		//  - @PostMapping(DB에 Insert )  
+		//  - @PutMapping (DB의 값을 Update)
+		//  - @DeleteMapping (DB의 값을 delete) 
+	
 	// CRUD REST 통신 처리 블락 
 	// get : 사원의 전체 리스트 정보  : /api/employee
 	// http://localhost:9999/api/employee

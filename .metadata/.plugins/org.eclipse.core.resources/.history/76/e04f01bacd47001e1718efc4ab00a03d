@@ -1,5 +1,0 @@
-package com.mysite.rest.employee.repository;
-
-public class EmployeeRepository {
-
-}

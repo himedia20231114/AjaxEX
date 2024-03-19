@@ -1,5 +1,0 @@
-package com.mysite.rest.exception;
-
-public class ResourceNotFoundException {
-
-}
