@@ -1,0 +1,5 @@
+package com.mysite.rest.employee.dto;
+
+public class EmployeeDTO {
+
+}
