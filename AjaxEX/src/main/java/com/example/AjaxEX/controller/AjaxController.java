@@ -3,6 +3,8 @@ package com.example.AjaxEX.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -128,8 +130,45 @@ public class AjaxController {
 		dtoList.add(new AjaxDto("사자", "곰"));
 
 		return dtoList; 
+	
+	}
+	
+	// REST API 통신 할때 
+	//ResponseEntity :   JSON 형식을 변환해서 내보냄. + HTTP 상태 코드를 내보낼 수 있다. 
+		//    data + http 상태코드 를 리턴 , 클라이언트에서 좀더 세밀한 컨트롤을 할 수 있음. 
+	@PostMapping("/ex09")
+	public ResponseEntity ex09(
+			@RequestBody AjaxDto ajaxDto
+			){
+		System.out.println("ex09 요청 성공 !!! ");
+		System.out.println("Dto param1 의 값 : " + ajaxDto.getParam1());
+		System.out.println("Dto param2 의 값 : " + ajaxDto.getParam2());
+		
+		return new ResponseEntity<>(ajaxDto, HttpStatus.OK); 
+		//return new ResponseEntity<>(ajaxDto, HttpStatus.NOT_FOUND); 
+	}
+	
+	@PostMapping("/ex10") 
+	public ResponseEntity ex10 (
+			@RequestBody AjaxDto ajaxDto
+			) {
+		System.out.println("ex10 요청 성공 !!! ");
+		System.out.println("Dto param1 의 값 : " + ajaxDto.getParam1());
+		System.out.println("Dto param2 의 값 : " + ajaxDto.getParam2());
+		
+		List<AjaxDto> dtoList = new ArrayList(); 
+		
+		dtoList.add(ajaxDto); 
+		dtoList.add(new AjaxDto("사과", "배")); 
+		dtoList.add(new AjaxDto("딸기", "바나나")); 
+		
+		return new ResponseEntity<>(dtoList, HttpStatus.OK); 
+	//	return new ResponseEntity<>(dtoList, HttpStatus.UNAUTHORIZED);
 		
 	}
+
+	
+	
 	
 
 	
