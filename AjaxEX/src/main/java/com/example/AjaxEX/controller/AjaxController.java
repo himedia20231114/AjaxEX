@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,6 +21,7 @@ import com.example.AjaxEX.service.MovieService;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -204,6 +206,22 @@ public class AjaxController {
 		List<MovieDTO> movieList = movieService.selectAll(); 
 				
 		return new ResponseEntity<> ( movieList, HttpStatus.OK); 
+	}
+	
+	// 수정 로직 : put , /movie/{id} 
+	@PutMapping("/movie/{id}")
+	public ResponseEntity updateMovie(
+			@PathVariable("id") long id , 
+			@RequestBody MovieDTO movieDTO 
+			) {
+//		System.out.println("put 요청 처럼됨 ");
+//		System.out.println(id);
+//		System.out.println(movieDTO.getTitle());
+		
+		movieService.updateMovie(id, movieDTO); 
+		
+		
+		return ResponseEntity.ok(movieDTO); 
 	}
 
 	

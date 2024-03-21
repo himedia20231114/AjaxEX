@@ -2,6 +2,7 @@ package com.example.AjaxEX.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -77,6 +78,28 @@ public class MovieService {
 		
 		
 		return movieList ; 
+	}
+	
+	// 수정 : put ,   매개변수 : id (long) , MovieDTO 
+	public void updateMovie(long id , MovieDTO movieDTO) {
+		// id 에대한 Movie 객체를 가지고 옴. 
+		Optional<Movie> op = movieRepository.findById(id); 
+		Movie movie = op.get(); 
+		
+//		System.out.println(movie.getTitle());
+//		System.out.println(movie.getVote_count());
+		
+		// Movie 객체에 movieDTO 
+//		movie = movieDTO.createMovie(); 
+		
+		 movie.setTitle(movieDTO.getTitle());
+		 movie.setVote_count(movieDTO.getVote_count());
+		 movie.setOriginal_language(movieDTO.getOriginal_language());
+		
+		
+		// save(Movie) // 수정 완료 
+		movieRepository.save(movie); 
+		
 	}
 	
 
