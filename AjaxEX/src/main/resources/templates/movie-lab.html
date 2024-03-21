@@ -8,17 +8,31 @@
 </head>
 <body>
 	<h1>Ajax -Movie-LAB (영화 json 데이터 서버의 DB에 입력)</h1>
-	<button onclick="ajaxLab2Fn()">서버에 POST 요청으로 DB에 값넣기 </button> <br> <br> 
-	<button onclick="ajaxLab3Fn()">서버에 get 요청으로 DB에 값을 콘솔 에 출력 하기  </button>
-			
+	<button onclick="ajaxLab1Fn()">서버에 POST 요청으로 DB에 값넣기 </button> <br> <br> 
+	<button onclick="ajaxLab2Fn()">서버에 get 요청으로 DB에 값을 콘솔 에 출력 하기  </button>
+	<button onclick="ajaxLab3Fn()">서버에 put 요청으로 DB에 값을 수정 에 출력 하기  </button>	
+	<button onclick="ajaxLab4Fn()">서버에 delete 요청으로 DB에 값을 삭제 에 출력 하기  </button>
+	<button onclick="ajaxLab5Fn()">서버에 get요청으로 DB에 값을 1개에 출력 하기  </button>
 </body>
 
 <script type="text/javascript">
+	// 완료시간 : 17:00
+	const ajaxLab3Fn = () => {
+		// put , /movie/1
+	}
+	const ajaxLab4Fn = () => {
+		// delete , /movie/2
+	}
+	const ajaxLab5Fn = () => {
+		//get, /movie/3
+	}
+
+
 
 	// 완료 시간 : 15:00 
 	// 서버의 DB에 저장된 내용을 출력 [{}, {}, {}]
 	// ajax를 사용해서 get 요청, /movie 
-	const ajaxLab3Fn = () => {
+	const ajaxLab2Fn = () => {
 		console.log("함수 호출 성공!!! ")
 		
 		$.ajax({
@@ -40,7 +54,7 @@
 	}
 
 	// client 데이터를 서버에 전송 : post 
-	const ajaxLab2Fn = () => {
+	const ajaxLab1Fn = () => {
 		//console.log("함수 호출 성공 ")
 		//const val1 = "Hello Spring Boot!!"; 
 		
