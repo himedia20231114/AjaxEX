@@ -2,6 +2,8 @@ package com.example.AjaxEX.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class IndexController {
@@ -54,6 +56,13 @@ public class IndexController {
 	public String ajax10() {	
 		return "ajax-ex-10"; 
 	}
+	
+	@GetMapping("/movie-lab")
+	public String movieLab() {
+		
+		return "movie-lab"; 
+	}
+	
 	
 
 }
