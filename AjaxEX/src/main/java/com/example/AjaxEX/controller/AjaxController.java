@@ -3,6 +3,8 @@ package com.example.AjaxEX.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.net.ssl.HttpsURLConnection;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -192,6 +194,16 @@ public class AjaxController {
 		String complate = movieService.movieInsert(movieDTO) ; 
 		
 		return new ResponseEntity<String>( complate , HttpStatus.OK); 
+	}
+	
+	// get , movie 테이블의 전체 내용을 출력 
+	@GetMapping("/movie") 
+	public ResponseEntity<List<MovieDTO>> getMovieAll() {
+		System.out.println("/movie 요청 잘 받음!!!");
+		
+		List<MovieDTO> movieList = movieService.selectAll(); 
+				
+		return new ResponseEntity<> ( movieList, HttpStatus.OK); 
 	}
 
 	
