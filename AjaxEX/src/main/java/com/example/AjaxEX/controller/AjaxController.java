@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.AjaxEX.dto.AjaxDto;
+import com.example.AjaxEX.dto.MovieDTO;
+import com.example.AjaxEX.service.MovieService;
+
+import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @Controller
+@RequiredArgsConstructor
 public class AjaxController {
 	
 	// http://localhost:9696/ex01
@@ -165,6 +170,28 @@ public class AjaxController {
 		return new ResponseEntity<>(dtoList, HttpStatus.OK); 
 	//	return new ResponseEntity<>(dtoList, HttpStatus.UNAUTHORIZED);
 		
+	}
+	
+	// DI 객체 주입 : @RequiredArgsConstructor 
+	private final MovieService movieService ; 
+	
+	// Movie 의 POST 요청을 처리하는 메소드 : insert 
+	@PostMapping("/movie") 
+	public ResponseEntity<String> movieInsert(
+			// cliet 에서 던지는 객체를 자바에서 input 
+			@RequestBody MovieDTO movieDTO 
+			) {
+		System.out.println("=====================");
+		System.out.println(movieDTO.getBackdrop_path());
+		System.out.println(movieDTO.getOriginal_language());
+		System.out.println(movieDTO.getTitle());
+		System.out.println(movieDTO.getPoster_path());
+		System.out.println("=====================");
+		
+		
+		String complate = movieService.movieInsert(movieDTO) ; 
+		
+		return new ResponseEntity<String>( complate , HttpStatus.OK); 
 	}
 
 	

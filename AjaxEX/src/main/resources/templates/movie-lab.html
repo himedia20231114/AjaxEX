@@ -33,7 +33,7 @@
 			//요청 방식 : get / post
 			//요청 주소 : /ex07		<== Controller로 보내는 요청 주소 
 			type:"post",
-			url:"/movie/post",
+			url:"/movie",
 			
 			// parameter 값을 서버로 전송 할때, JavaScript 객체로 전송하는 것이 아니라 JSON 형식으로 전송했을때는 
 			// 서버에서 @RequestBody 어노테이션으로 받아야 한다. 
@@ -46,6 +46,8 @@
 				console.log("성공", res)	
 			//	console.log("param1 의 값 : ", res.title)
 			//	console.log("param2 의 값 : ", res.poster_path)
+				window.location.href='/'; 
+			
 			},
 			
 			//요청이 실패 했을때 실행되는 블락 (예외 처리 )
