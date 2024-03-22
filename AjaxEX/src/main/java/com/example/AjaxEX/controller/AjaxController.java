@@ -8,6 +8,7 @@ import javax.net.ssl.HttpsURLConnection;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -176,58 +177,6 @@ public class AjaxController {
 		
 	}
 	
-	// DI 객체 주입 : @RequiredArgsConstructor 
-	private final MovieService movieService ; 
-	
-	// Movie 의 POST 요청을 처리하는 메소드 : insert 
-	@PostMapping("/movie") 
-	public ResponseEntity<String> movieInsert(
-			// cliet 에서 던지는 객체를 자바에서 input 
-			@RequestBody MovieDTO movieDTO 
-			) {
-		System.out.println("=====================");
-		System.out.println(movieDTO.getBackdrop_path());
-		System.out.println(movieDTO.getOriginal_language());
-		System.out.println(movieDTO.getTitle());
-		System.out.println(movieDTO.getPoster_path());
-		System.out.println("=====================");
-		
-		
-		String complate = movieService.movieInsert(movieDTO) ; 
-		
-		return new ResponseEntity<String>( complate , HttpStatus.OK); 
-	}
-	
-	// get , movie 테이블의 전체 내용을 출력 
-	@GetMapping("/movie") 
-	public ResponseEntity<List<MovieDTO>> getMovieAll() {
-		System.out.println("/movie 요청 잘 받음!!!");
-		
-		List<MovieDTO> movieList = movieService.selectAll(); 
-				
-		return new ResponseEntity<> ( movieList, HttpStatus.OK); 
-	}
-	
-	// 수정 로직 : put , /movie/{id} 
-	@PutMapping("/movie/{id}")
-	public ResponseEntity updateMovie(
-			@PathVariable("id") long id , 
-			@RequestBody MovieDTO movieDTO 
-			) {
-//		System.out.println("put 요청 처럼됨 ");
-//		System.out.println(id);
-//		System.out.println(movieDTO.getTitle());
-		
-		movieService.updateMovie(id, movieDTO); 
-		
-		
-		return ResponseEntity.ok(movieDTO); 
-	}
-
-	
-	
-	
-
 	
 	
 	

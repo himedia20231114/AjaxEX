@@ -102,6 +102,58 @@ public class MovieService {
 		
 	}
 	
+	// 삭제 메소드 : 리턴 : void , 매개변수 : id
+	public void deleteMovie (long id) {
+		
+		// id를 인풋 받아서 findById(id) 
+		Optional<Movie> op = 
+				movieRepository.findById(id); 
+		Movie movie = null ; 
+		try {
+			// op 가 Null 일 경우 예외 처리가 필요  
+			 movie = op.get(); 
+		}catch (Exception e) {
+			
+		}
+		
+		//System.out.println(movie.getTitle());
+		
+		movieRepository.delete(movie);
+		
+	//	System.out.println("DB에서 삭제 성공됨!!!");
+		
+	}
+	
+	// 상세보기 : 리턴 : MovieDTO , 매개변수 : id 
+	public MovieDTO getMovieDetail (long id) {
+		// 
+		// id를 인풋 받아서 findById(id) 
+		Optional<Movie> op = 
+				movieRepository.findById(id); 
+		Movie movie = null ; 
+		try {
+			// op 가 Null 일 경우 예외 처리가 필요  
+			 movie = op.get(); 
+		}catch (Exception e) {
+			
+		}
+		
+		System.out.println("movie 객체 출력");
+		System.out.println(movie.getTitle());
+		
+		// movie (Entity) ===> MovieDTO  매핑 
+		MovieDTO movieDTO = new MovieDTO(); 
+		
+		movieDTO = movieDTO.of(movie); 
+		
+		System.out.println("movieDTO 의 값 출력");
+		System.out.println(movieDTO.getTitle());
+		
+		
+		
+		return movieDTO ; 
+	}
+	
 
 	
 	

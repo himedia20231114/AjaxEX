@@ -16,6 +16,47 @@
 </body>
 
 <script type="text/javascript">
+
+	//get 요청 : /movie/3     리턴 :  {}
+	const ajaxLab5Fn = () => {
+		//get, /movie/3
+		
+		console.log("5번 함수 호출 성공 !!")
+		$.ajax({
+			type : "get", 
+			url : "http://localhost:9696/movie/3", 
+			
+			success : (res) => {
+				alert (`요청 성공 : ${res}`); 
+				console.log ("성공 : ", res ); 
+			}, 
+			error : (err) => {
+				console.log ("실패 : ", err); 
+			}
+			
+		})
+	}
+
+
+	const ajaxLab4Fn = () => {
+		// delete , /movie/2
+		$.ajax({
+			type : "delete", 
+			url : "http://localhost:9696/movie/2", 
+			
+			success : (res) => {
+				console.log("성공 : " , res); 
+			}, 
+			error : (err) => {
+				console.log ("실패 : ", err); 
+			}			
+			
+		})
+		
+	}
+
+
+
 	// 완료시간 : 17:00
 	const id = 1 ; 
 	const params = {
@@ -50,12 +91,7 @@
 		})
 		
 	}
-	const ajaxLab4Fn = () => {
-		// delete , /movie/2
-	}
-	const ajaxLab5Fn = () => {
-		//get, /movie/3
-	}
+
 
 
 

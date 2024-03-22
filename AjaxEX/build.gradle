@@ -58,6 +58,13 @@ dependencies {
 	testImplementation 'org.junit.jupiter:junit-jupiter' 
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     testImplementation 'org.springframework.security:spring-security-test'
+    
+    // swagger
+	//swagger UI : Spring Boot 3.0 기본 내장됨.
+	//0. SpringBoot 3.0.0 이상부터는 springfox가 아닌 springdoc-openapi-ui 라이브러리를 사용해야 합니다. springfox <== 지원 중단됨
+	// http://localhost:9999/swagger-ui/index.html <== UI
+	// http://localhost:9999/v3/api-docs <== JSON
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
 	
 	
 	
