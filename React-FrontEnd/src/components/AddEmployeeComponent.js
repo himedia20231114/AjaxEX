@@ -15,14 +15,14 @@ const AddEmployeeComponent = () => {
 
         const employee = {firstName, lastName, emailId}
 
-        if(id){
+        if(id){    // PUT : 수정 (UPDATE)
             EmployeeService.updateEmployee(id, employee).then((response) => {
                 navigate('/employees')
             }).catch(error => {
                 console.log(error)
             })
 
-        }else{
+        }else{     // POST : 등록 (INSERT)
             EmployeeService.createEmployee(employee).then((response) =>{
 
                 console.log(response.data)

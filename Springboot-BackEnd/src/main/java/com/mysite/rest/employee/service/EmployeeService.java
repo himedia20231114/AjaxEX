@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 public class EmployeeService {
     private final EmployeeRepository employeeRepository;
     
+    
     //사원 리스트 
     public List<Employee> getEmployeeList() {
     	return employeeRepository.findAll();
@@ -21,9 +22,11 @@ public class EmployeeService {
     
     //사원 정보 
     public Employee createEmployee(EmployeeDTO employeeDTO) {
-    	Employee employee = new Employee(employeeDTO); 
+    	Employee employee = new Employee(employeeDTO);
     	
+    	System.out.println("사원등록 성공 ");
     	return employeeRepository.save(employee); 
+    	
     }
     
 }

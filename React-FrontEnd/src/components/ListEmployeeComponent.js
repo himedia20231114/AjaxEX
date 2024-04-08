@@ -13,7 +13,8 @@ const ListEmployeeComponent = () => {
 
     const getAllEmployees = () => {
         EmployeeService.getAllEmployees().then((response) => {
-            setEmployees(response.data)
+            console.log("성공 : " , response); 
+            setEmployees(response.data); 
             console.log(response.data);
         }).catch(error =>{
             console.log(error);

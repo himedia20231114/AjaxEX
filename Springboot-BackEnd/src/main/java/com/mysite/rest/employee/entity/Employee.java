@@ -19,6 +19,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table (name = "employees")
 public class Employee {
+	// Entity : DB의 테이블의 컬럼을 연결 
+	
 		
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)

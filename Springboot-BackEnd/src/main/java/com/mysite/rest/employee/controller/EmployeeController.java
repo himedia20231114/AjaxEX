@@ -25,7 +25,7 @@ import com.mysite.rest.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @CrossOrigin("*")		//CORS 셋팅 
-@RestController			// REST API 통신 
+@RestController			// REST API 통신 : @ResponseBody + @Controller 
 @RequestMapping ("/api/employee")		//@RequestMapping 하위 요청에 상속 됨. 
 @RequiredArgsConstructor
 public class EmployeeController {
@@ -61,6 +61,7 @@ public class EmployeeController {
     private final EmployeeRepository employeeRepository;
     private final EmployeeService employeeService; 
 
+    // http://localhost:9999/api/employee
     @GetMapping
     public List<Employee> getAllEmployees(){ 
     	System.out.println("getAllEmployees : 호출됨 ");

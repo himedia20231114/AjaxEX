@@ -5,13 +5,13 @@ import axios from 'axios'
     // get (select), post ( insert ), put( Update , 모든 필드 ), patch(update, 일부필드), 
     // delete(delete) 
 /*
-    1. XMLHTTPRequest  : 초창기 사용, 사용 구분 복잡 
+    1. XMLHTTPRequest  : 초창기 사용, 사용 구문이 복잡 
     2. fetch           : JavaScript 기본 내장 , 라이브러리 설치 없이 사용 가능 
     3. ajax            : JQuery 라이브러리 등록,  <== MPA ( Server Side Randerring ) 
-    4. axios            : React 에서 많이 사용. 라이브러리 설치가 필요 
+    4. axios            : React 에서 많이 사용. 라이브러리 설치가 필요 , SPA ( CSR )
             npm install axios 
             yarn add axios 
-             
+            
 */ 
 
 const EMPLOYEE_BASE_REST_API_URL = 'http://localhost:9999/api/employee';
